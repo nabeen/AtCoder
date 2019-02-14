@@ -5,14 +5,17 @@
 
 def main() -> None:
     n = int(input())
-    tr = [0, 0, 1]
-    s = 0 if n != 3 else 1
-    for i in range(3, n):
-        s = tr[0] + tr[1] + tr[2]
-        tr = tr[1:]
-        tr.append(s % 10007)
+    if n == 1 or n == 2:
+    	print(0)
+    else:
+	    print(trb(n))
 
-    print(s % 10007)
+
+def trb(n, a=0, b=0, c=1):
+	for _ in range(3,n):
+		a, b, c = b, c, (a+b+c) % 10007
+
+	return c
 
 
 if __name__ == '__main__':
